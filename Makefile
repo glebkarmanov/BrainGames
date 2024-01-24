@@ -1,5 +1,8 @@
-install: # установить зависимости
+install:
 	composer install
 
-brain-games: # сгенерировать ключи
-	php bin/brain-games.php
+brain-games:
+	./bin/brain-games
+
+validate:
+	composer validate
