@@ -1,4 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-echo "Welcome to the Brain Games!";
+welcomeUser();
+
+// echo "Welcome to the Brain Games!";

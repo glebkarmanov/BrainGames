@@ -4,7 +4,15 @@ namespace BrainGames\Cli;
 
 use function cli\line;
 use function cli\prompt;
+function welcomeUser() {
+    // Используйте функции из библиотеки cli\line и cli\prompt
 
-line('Welcome to the Brain Game!');
-$name = prompt('May I have your name?');
-line("Hello, %s!", $name);
+    // Вывод приветствия
+    line('Welcome to the Brain Game!');
+
+    // Запрос имени у пользователя
+    $name = prompt('May I have your name?');
+
+    // Вывод приветствия с использованием введенного имени
+    line("Hello, %s!", $name);
+}
