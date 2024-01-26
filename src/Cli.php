@@ -2,6 +2,8 @@
 
 namespace BrainGames\Cli;
 
+require_once 'vendor/autoload.php';
+
 use function cli\line;
 use function cli\prompt;
 function welcomeUser() {
