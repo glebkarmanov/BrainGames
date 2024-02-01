@@ -3,4 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/61fe8bf5ee7bc86ffb95/maintainability)](https://codeclimate.com/github/glebkarmanov/BrainGames/maintainability)
 
-[![ascciinema](https://asciinema.org/connect/8a3a699b-7c40-49b0-90ba-a89549073d22)](https://asciinema.org/connect/8a3a699b-7c40-49b0-90ba-a89549073d22)
+[![ascciinema](https://asciinema.org/a/hu2j417avY9X1ysKkdjjcchp4)](https://asciinema.org/a/hu2j417avY9X1ysKkdjjcchp4)

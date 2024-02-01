@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+
+require_once 'vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+use function BrainGames\Engine\greetUser;
+use function BrainGames\Engine\askQuestion;
+use function BrainGames\Engine\isAnswerCorrect;
+use function BrainGames\Engine\playGame;
+use function BrainGames\Engine\announceResult;
+use function BrainGames\Engine\startGame;
+function generateRandomExpression()
+{
+    $operators = ["+", "-", "*"];
+    $operand1 = random_int(1, 99);
+    $operand2 = random_int(1, 99);
+    $i = array_rand($operators);
+    $expression = "$operand1 $operators[$i] $operand2";
+    return $expression;
+}
+
+function isAnswer($randomExpression)
+{
+    $result = eval("return $randomExpression;");
+    return $result;
+}
+
+
+// Запуск игры "Калькулятор"
+startGame('calc');
