@@ -41,7 +41,7 @@ function playGame($name)
     while ($i < 3) {
         if (askQuestion()) {
             $i = $i + 1;
-            line("correct!");
+            line("Correct!");
         } else {
             return false;
         }
