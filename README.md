@@ -3,4 +3,9 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/61fe8bf5ee7bc86ffb95/maintainability)](https://codeclimate.com/github/glebkarmanov/BrainGames/maintainability)
 
-[![ascciinema](https://asciinema.org/a/hu2j417avY9X1ysKkdjjcchp4)](https://asciinema.org/a/hu2j417avY9X1ysKkdjjcchp4)
+[![ascciinemaEven](https://asciinema.org/a/hu2j417avY9X1ysKkdjjcchp4)](https://asciinema.org/a/hu2j417avY9X1ysKkdjjcchp4)
+
+[![ascciinemaCalc](https://asciinema.org/a/aquhpLzOx1WEb2IQeMF5ElFfr)](https://asciinema.org/a/aquhpLzOx1WEb2IQeMF5ElFfr)
+
+
+
