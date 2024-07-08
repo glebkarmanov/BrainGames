@@ -7,5 +7,8 @@
 
 [![ascciinemaCalc](https://asciinema.org/a/aquhpLzOx1WEb2IQeMF5ElFfr)](https://asciinema.org/a/aquhpLzOx1WEb2IQeMF5ElFfr)
 
+[![ascciinemaGcd](https://asciinema.org/a/X8e2UNmYjyw6tB8gl03Gj7XK9)](https://asciinema.org/a/X8e2UNmYjyw6tB8gl03Gj7XK9)
+
+
 
 
