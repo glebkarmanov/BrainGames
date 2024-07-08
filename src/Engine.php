@@ -18,6 +18,9 @@ function greetUser($gameType)
     } elseif ($gameType === 'even') {
         line('Answer "yes" if the number is even, otherwise answer "no"');
     }
+    elseif ($gameType === 'gcd') {
+        line('Find the greatest common divisor of given numbers.');
+    }
     return $name;
 }
 
@@ -34,6 +37,12 @@ function askQuestion($gameType)
         $answer = prompt('Your answer');
         return isAnswerCorrect($answer, $randomNumber, $gameType);
     }
+    elseif ($gameType === 'gcd') {
+        $randomCommon = randomNumberForCommon();
+        line("Question: $randomCommon");
+        $answer = prompt('Your answer');
+        return isAnswerCorrect($answer, $randomCommon, $gameType);
+    }
 }
 
 function isAnswerCorrect($answer, $randomValue, $gameType)
@@ -44,6 +53,11 @@ function isAnswerCorrect($answer, $randomValue, $gameType)
     } elseif ($gameType === 'even') {
         return ($randomValue % 2 === 0 and $answer === "yes") ||
             ($randomValue % 2 !== 0 and $answer === "no");
+    }
+    elseif ($gameType === 'gcd') {
+        $array = splitStringIntoNumbers($randomValue);
+        $result = answerRandomNumberForCommon($array);
+        return $result == $answer;
     }
 }
 
