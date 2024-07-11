@@ -24,6 +24,9 @@ function greetUser($gameType)
     elseif ($gameType === 'progression') {
         line('What number is missing in the progression?');
     }
+    elseif ($gameType === 'prime') {
+        line('Answer "yes" if given number is prime. Otherwise answer "no".');
+    }
     return $name;
 }
 
@@ -48,13 +51,17 @@ function askQuestion($gameType)
         return isAnswerCorrect($answer, $randomCommon, $gameType);
     }
     elseif ($gameType === 'progression') {
-
-        /// Генерируем случайную последовательность
         $randomNext = randomNext();
         $string = implode(' ', $randomNext[0]);
         line( "Question: $string");
         $answer = prompt('Your answer');
         return isAnswerCorrect($answer, $randomNext[1], $gameType);
+    }
+    elseif ($gameType === 'prime') {
+        $randomNumber = randomNumberForPrime();
+        line("Question: $randomNumber");
+        $answer = prompt("Your answer");
+        return isAnswerCorrect($answer, $randomNumber, $gameType);
     }
 }
 
@@ -74,6 +81,16 @@ function isAnswerCorrect($answer, $randomValue, $gameType)
     }
     elseif ($gameType === 'progression') {
         return $answer == $randomValue;
+    }
+    elseif ($gameType === 'prime') {
+        $result = checkPrime($randomValue);
+        if (mb_strtolower($answer) === 'no' && $result == false) {
+            return true;
+        }
+        elseif (mb_strtolower($answer) === 'yes' && $result == true) {
+            return true;
+        }
+        return false;
     }
 }
 

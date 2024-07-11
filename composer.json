@@ -11,13 +11,14 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
-        "bin/brain-progression"
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "require": {
         "wp-cli/php-cli-tools": "^0.11.22"
     },
     "autoload": {
-            "files": ["src/Cli.php", "src/Engine.php", "src/Games/calc", "src/Games/even", "src/Games/gcd", "src/Games/progression"]
+            "files": ["src/Cli.php", "src/Engine.php", "src/Games/calc", "src/Games/even", "src/Games/gcd", "src/Games/progression", "src/Games/prime"]
         },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.8"

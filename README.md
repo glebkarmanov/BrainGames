@@ -11,6 +11,8 @@
 
 [![ascciinemaProgression](https://asciinema.org/a/aYBFGliUOqOYorynD5kgLqakm)](https://asciinema.org/a/aYBFGliUOqOYorynD5kgLqakm)
 
+[![ascciinemaPrime](https://asciinema.org/a/Q70283Z6xnxQynPd6RHVJM3pO)](https://asciinema.org/a/Q70283Z6xnxQynPd6RHVJM3pO)
+
 
 
 
