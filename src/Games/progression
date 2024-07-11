@@ -8,8 +8,9 @@ function randomNext () {
     $step = random_int(2, 10);
     $result[] = $startNext;
     $i = 0;
+    $countProgress = 10;
 
-    while ($i < 10) {
+    while ($i < $countProgress) {
         $newStep = $result[$i] + $step;
         $result[] = $newStep;
         $i = $i + 1;
