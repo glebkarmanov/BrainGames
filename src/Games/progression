@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+require_once 'vendor/autoload.php';
+
+function randomNext () {
+    $startNext = random_int(1, 100);
+    $step = random_int(2, 10);
+    $result[] = $startNext;
+    $i = 0;
+
+    while ($i < 10) {
+        $newStep = $result[$i] + $step;
+        $result[] = $newStep;
+        $i = $i + 1;
+    }
+
+    $silent = array_rand($result, 1);
+    $new = $result[$silent];
+
+    $result[$silent] = '..';
+
+    return [$result, $new];
+}

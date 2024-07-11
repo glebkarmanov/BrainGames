@@ -21,6 +21,9 @@ function greetUser($gameType)
     elseif ($gameType === 'gcd') {
         line('Find the greatest common divisor of given numbers.');
     }
+    elseif ($gameType === 'progression') {
+        line('What number is missing in the progression?');
+    }
     return $name;
 }
 
@@ -31,7 +34,8 @@ function askQuestion($gameType)
         line("Question: $randomExpression");
         $answer = prompt('Your answer');
         return isAnswerCorrect($answer, $randomExpression, $gameType);
-    } elseif ($gameType === 'even') {
+    }
+    elseif ($gameType === 'even') {
         $randomNumber = generateRandomNumber();
         line("Question: $randomNumber");
         $answer = prompt('Your answer');
@@ -42,6 +46,15 @@ function askQuestion($gameType)
         line("Question: $randomCommon");
         $answer = prompt('Your answer');
         return isAnswerCorrect($answer, $randomCommon, $gameType);
+    }
+    elseif ($gameType === 'progression') {
+
+        /// Генерируем случайную последовательность
+        $randomNext = randomNext();
+        $string = implode(' ', $randomNext[0]);
+        line( "Question: $string");
+        $answer = prompt('Your answer');
+        return isAnswerCorrect($answer, $randomNext[1], $gameType);
     }
 }
 
@@ -58,6 +71,9 @@ function isAnswerCorrect($answer, $randomValue, $gameType)
         $array = splitStringIntoNumbers($randomValue);
         $result = answerRandomNumberForCommon($array);
         return $result == $answer;
+    }
+    elseif ($gameType === 'progression') {
+        return $answer == $randomValue;
     }
 }
 

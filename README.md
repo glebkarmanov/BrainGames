@@ -9,6 +9,8 @@
 
 [![ascciinemaGcd](https://asciinema.org/a/X8e2UNmYjyw6tB8gl03Gj7XK9)](https://asciinema.org/a/X8e2UNmYjyw6tB8gl03Gj7XK9)
 
+[![ascciinemaProgression](https://asciinema.org/a/aYBFGliUOqOYorynD5kgLqakm)](https://asciinema.org/a/aYBFGliUOqOYorynD5kgLqakm)
+
 
 
 
