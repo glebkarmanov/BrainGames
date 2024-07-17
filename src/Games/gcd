@@ -37,9 +37,7 @@ function answerRandomNumberForCommon($randomNumbers) {
     $divideNumber = $moreNumber % $lowNumber;
     if ($divideNumber === 0) {
         return $lowNumber;
-    }
-    else {
+    } else {
         return answerRandomNumberForCommon([$lowNumber, $divideNumber]);
     }
 }
-

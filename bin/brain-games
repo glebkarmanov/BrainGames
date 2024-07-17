@@ -8,3 +8,4 @@ use function BrainGames\Cli\welcomeUser;
 welcomeUser();
 
 // echo "Welcome to the Brain Games!";
+
