@@ -8,7 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use function cli\line;
 use function cli\prompt;
 
-function greetUser($gameType)
+function greetUser($gameType): string
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -27,6 +27,9 @@ function greetUser($gameType)
     return $name;
 }
 
+/**
+ * @return bool|null
+ */
 function askQuestion($gameType)
 {
     if ($gameType === 'calc') {
@@ -58,6 +61,9 @@ function askQuestion($gameType)
     }
 }
 
+/**
+ * @return bool|null
+ */
 function isAnswerCorrect($answer, $randomValue, $gameType)
 {
     if ($gameType === 'calc') {
@@ -83,7 +89,7 @@ function isAnswerCorrect($answer, $randomValue, $gameType)
     }
 }
 
-function playGame($name, $gameType)
+function playGame($name, $gameType): bool
 {
     $i = 0;
     while ($i < 3) {
@@ -97,7 +103,7 @@ function playGame($name, $gameType)
     return true;
 }
 
-function announceResult($name, $gameType)
+function announceResult($name, $gameType): void
 {
     if (playGame($name, $gameType)) {
         line("Congratulations, $name!");
@@ -106,7 +112,7 @@ function announceResult($name, $gameType)
     }
 }
 
-function startGame($gameType)
+function startGame($gameType): void
 {
     $name = greetUser($gameType);
     announceResult($name, $gameType);
