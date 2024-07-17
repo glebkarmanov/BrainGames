@@ -8,7 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use function cli\line;
 use function cli\prompt;
 
-function greetUser($gameType): string
+function greetUser(string $gameType): string
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -27,10 +27,7 @@ function greetUser($gameType): string
     return $name;
 }
 
-/**
- * @return bool|null
- */
-function askQuestion($gameType)
+function askQuestion(string $gameType): bool
 {
     if ($gameType === 'calc') {
         $randomExpression = generateRandomExpression();
@@ -61,10 +58,8 @@ function askQuestion($gameType)
     }
 }
 
-/**
- * @return bool|null
- */
-function isAnswerCorrect($answer, $randomValue, $gameType)
+
+function isAnswerCorrect(mixed $answer, mixed $randomValue, string $gameType): bool
 {
     if ($gameType === 'calc') {
         $result = isAnswer($randomValue);
@@ -89,7 +84,7 @@ function isAnswerCorrect($answer, $randomValue, $gameType)
     }
 }
 
-function playGame($name, $gameType): bool
+function playGame(string $name, string $gameType): bool
 {
     $i = 0;
     while ($i < 3) {
@@ -103,7 +98,7 @@ function playGame($name, $gameType): bool
     return true;
 }
 
-function announceResult($name, $gameType): void
+function announceResult(string $name, string $gameType): void
 {
     if (playGame($name, $gameType)) {
         line("Congratulations, $name!");
@@ -112,7 +107,7 @@ function announceResult($name, $gameType): void
     }
 }
 
-function startGame($gameType): void
+function startGame(string $gameType): void
 {
     $name = greetUser($gameType);
     announceResult($name, $gameType);

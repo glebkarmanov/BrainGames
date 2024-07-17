@@ -3,14 +3,14 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-function randomNumberForCommon() {
+function randomNumberForCommon(): string {
     $number1 = random_int(1, 100);
     $number2 = random_int(1, 100);
     $result = "$number1 $number2";
     return $result;
 }
 
-function splitStringIntoNumbers($result) {
+function splitStringIntoNumbers($result): array {
     // Разделяем строку по пробелу на массив
     $numbers = explode(' ', $result);
 
@@ -21,7 +21,7 @@ function splitStringIntoNumbers($result) {
     return [$number1, $number2];
 }
 
-function answerRandomNumberForCommon($randomNumbers) {
+function answerRandomNumberForCommon($randomNumbers): int {
 
     $randomNumber1 = $randomNumbers[0];
     $randomNumber2 = $randomNumbers[1];

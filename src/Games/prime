@@ -3,11 +3,11 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-function randomNumberForPrime() {
+function randomNumberForPrime(): int {
     return random_int(1, 100);
 }
 
-function checkPrime($number) {
+function checkPrime($number): bool {
     $i = 2;
 
     while ($i < $number) {

@@ -11,7 +11,7 @@ use function BrainGames\Engine\isAnswerCorrect;
 use function BrainGames\Engine\playGame;
 use function BrainGames\Engine\announceResult;
 use function BrainGames\Engine\startGame;
-function generateRandomExpression()
+function generateRandomExpression(): string
 {
     $operators = ["+", "-", "*"];
     $operand1 = random_int(1, 99);
@@ -21,7 +21,7 @@ function generateRandomExpression()
     return $expression;
 }
 
-function isAnswer($randomExpression)
+function isAnswer($randomExpression): int
 {
     $result = eval("return $randomExpression;");
     return $result;
