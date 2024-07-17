@@ -16,7 +16,7 @@ function greetUser($gameType)
     if ($gameType === 'calc') {
         line('What is the result of the expression?');
     } elseif ($gameType === 'even') {
-        line('Answer "yes" if the number is even, otherwise answer "no"');
+        line('Answer "yes" if the number is even, otherwise answer "no".');
     }
     elseif ($gameType === 'gcd') {
         line('Find the greatest common divisor of given numbers.');
