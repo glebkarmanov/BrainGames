@@ -27,7 +27,7 @@ function greetUser(string $gameType): string
     return $name;
 }
 
-function askQuestion(string $gameType): bool
+function askQuestion(string $gameType)
 {
     if ($gameType === 'calc') {
         $randomExpression = generateRandomExpression();
@@ -59,7 +59,7 @@ function askQuestion(string $gameType): bool
 }
 
 
-function isAnswerCorrect(mixed $answer, mixed $randomValue, string $gameType): bool
+function isAnswerCorrect(mixed $answer, mixed $randomValue, string $gameType)
 {
     if ($gameType === 'calc') {
         $result = isAnswer($randomValue);
