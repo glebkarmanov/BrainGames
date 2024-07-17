@@ -18,7 +18,7 @@ function welcomeUser()
 function performWelcomeUser()
 {
     // Вывод приветствия
-    line('Welcome to the Brain Game!');
+    line('Welcome to the Brain Games!');
 
     // Запрос имени у пользователя
     $name = prompt('May I have your name?');
