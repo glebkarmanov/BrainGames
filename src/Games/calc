@@ -26,3 +26,7 @@ function isAnswer($randomExpression): int
     $result = eval("return $randomExpression;");
     return $result;
 }
+
+function startGameCalc(): void {
+    startGame('calc');
+}

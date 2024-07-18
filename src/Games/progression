@@ -3,6 +3,8 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use function BrainGames\Engine\startGame;
+
 function randomNext (): array {
     $startNext = random_int(1, 100);
     $step = random_int(2, 10);
@@ -22,4 +24,8 @@ function randomNext (): array {
     $result[$silent] = '..';
 
     return [$result, $new];
+}
+
+function startGameProgression(): void {
+    startGame('progression');
 }

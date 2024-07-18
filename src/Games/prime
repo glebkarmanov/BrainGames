@@ -3,6 +3,8 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use function BrainGames\Engine\startGame;
+
 function randomNumberForPrime(): int {
     return random_int(1, 100);
 }
@@ -18,4 +20,8 @@ function checkPrime($number): bool {
     }
 
     return true;
+}
+
+function startGamePrime(): void {
+    startGame('prime');
 }

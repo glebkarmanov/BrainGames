@@ -3,6 +3,8 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use function BrainGames\Engine\startGame;
+
 function randomNumberForCommon(): string {
     $number1 = random_int(1, 100);
     $number2 = random_int(1, 100);
@@ -40,4 +42,8 @@ function answerRandomNumberForCommon($randomNumbers): int {
     } else {
         return answerRandomNumberForCommon([$lowNumber, $divideNumber]);
     }
+}
+
+function startGameGcd(): void {
+    startGame('gcd');
 }
