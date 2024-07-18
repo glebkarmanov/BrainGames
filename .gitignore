@@ -1,1 +1,5 @@
-/vendor/
+vendor/
+.idea/
+.DS_Store
+*.cast
+package.xml
