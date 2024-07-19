@@ -3,7 +3,5 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function BrainGames\Engine\startGame;
-
 startGameCalc();
 
