@@ -45,5 +45,5 @@ function answerRandomNumberForCommon($randomNumbers): int {
 }
 
 function startGameGcd(): void {
-    startGame('gcd.php');
+    startGame('gcd');
 }

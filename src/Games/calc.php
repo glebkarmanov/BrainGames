@@ -43,5 +43,5 @@ function isAnswer(string $expression): int {
 }
 
 function startGameCalc(): void {
-    startGame('calc.php');
+    startGame('calc');
 }

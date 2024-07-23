@@ -18,5 +18,5 @@ function generateRandomNumber(): int
 }
 
 function startGameEven(): void {
-    startGame('even.php');
+    startGame('even');
 }

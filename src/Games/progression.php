@@ -27,5 +27,5 @@ function randomNext (): array {
 }
 
 function startGameProgression(): void {
-    startGame('progression.php');
+    startGame('progression');
 }

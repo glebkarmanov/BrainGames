@@ -23,5 +23,5 @@ function checkPrime($number): bool {
 }
 
 function startGamePrime(): void {
-    startGame('prime.php');
+    startGame('prime');
 }
