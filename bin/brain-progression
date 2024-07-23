@@ -1,6 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+namespace BrainGames\Bin\Progression;
+
 require_once __DIR__ . '/../vendor/autoload.php';
+
+use function BrainGames\Games\Progression\startGameProgression;
 
 startGameProgression();

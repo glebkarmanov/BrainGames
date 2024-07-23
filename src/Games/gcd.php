@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+namespace BrainGames\Games\Gcd;
 
 use function BrainGames\Engine\startGame;
 
@@ -45,5 +45,5 @@ function answerRandomNumberForCommon($randomNumbers): int {
 }
 
 function startGameGcd(): void {
-    startGame('gcd');
+    startGame('gcd.php');
 }

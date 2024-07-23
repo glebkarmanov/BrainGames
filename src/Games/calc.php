@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+namespace BrainGames\Games\Calc;
 
 use function cli\line;
 use function cli\prompt;
@@ -21,12 +21,27 @@ function generateRandomExpression(): string
     return $expression;
 }
 
-function isAnswer($randomExpression): int
-{
-    $result = eval("return $randomExpression;");
-    return $result;
+function isAnswer(string $expression): int {
+    $expression = str_replace(' ', '', $expression);
+
+    if (preg_match('/^(\d+)([+\-*])(\d+)$/', $expression, $matches)) {
+        $operand1 = (int)$matches[1];
+        $operator = $matches[2];
+        $operand2 = (int)$matches[3];
+
+        switch ($operator) {
+            case '+':
+                return $operand1 + $operand2;
+            case '-':
+                return $operand1 - $operand2;
+            case '*':
+                return $operand1 * $operand2;
+        }
+    }
+
+    return 0;
 }
 
 function startGameCalc(): void {
-    startGame('calc');
+    startGame('calc.php');
 }

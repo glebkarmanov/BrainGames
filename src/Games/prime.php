@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\startGame;
 
@@ -23,5 +23,5 @@ function checkPrime($number): bool {
 }
 
 function startGamePrime(): void {
-    startGame('prime');
+    startGame('prime.php');
 }

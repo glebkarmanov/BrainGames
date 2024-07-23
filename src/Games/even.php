@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+namespace BrainGames\Games\Even;
 
 use function cli\line;
 use function cli\prompt;
@@ -18,5 +18,5 @@ function generateRandomNumber(): int
 }
 
 function startGameEven(): void {
-    startGame('even');
+    startGame('even.php');
 }

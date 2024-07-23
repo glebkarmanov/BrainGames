@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\startGame;
 
@@ -27,5 +27,5 @@ function randomNext (): array {
 }
 
 function startGameProgression(): void {
-    startGame('progression');
+    startGame('progression.php');
 }
