@@ -5,14 +5,16 @@ namespace BrainGames\Games\Gcd;
 
 use function BrainGames\Engine\startGame;
 
-function randomNumberForCommon(): string {
+function randomNumberForCommon(): string
+{
     $number1 = random_int(1, 100);
     $number2 = random_int(1, 100);
     $result = "$number1 $number2";
     return $result;
 }
 
-function splitStringIntoNumbers($result): array {
+function splitStringIntoNumbers($result): array
+{
     // Разделяем строку по пробелу на массив
     $numbers = explode(' ', $result);
 
@@ -23,7 +25,8 @@ function splitStringIntoNumbers($result): array {
     return [$number1, $number2];
 }
 
-function answerRandomNumberForCommon($randomNumbers): int {
+function answerRandomNumberForCommon($randomNumbers): int
+{
 
     $randomNumber1 = $randomNumbers[0];
     $randomNumber2 = $randomNumbers[1];
@@ -44,6 +47,7 @@ function answerRandomNumberForCommon($randomNumbers): int {
     }
 }
 
-function startGameGcd(): void {
+function startGameGcd(): void
+{
     startGame('gcd');
 }

@@ -5,7 +5,8 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\startGame;
 
-function randomNext (): array {
+function randomNext(): array
+{
     $startNext = random_int(1, 100);
     $step = random_int(2, 10);
     $result[] = $startNext;
@@ -26,6 +27,7 @@ function randomNext (): array {
     return [$result, $new];
 }
 
-function startGameProgression(): void {
+function startGameProgression(): void
+{
     startGame('progression');
 }

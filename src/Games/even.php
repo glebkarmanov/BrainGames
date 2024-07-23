@@ -17,6 +17,7 @@ function generateRandomNumber(): int
     return random_int(1, 99);
 }
 
-function startGameEven(): void {
+function startGameEven(): void
+{
     startGame('even');
 }

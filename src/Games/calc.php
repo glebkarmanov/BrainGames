@@ -11,6 +11,7 @@ use function BrainGames\Engine\isAnswerCorrect;
 use function BrainGames\Engine\playGame;
 use function BrainGames\Engine\announceResult;
 use function BrainGames\Engine\startGame;
+
 function generateRandomExpression(): string
 {
     $operators = ["+", "-", "*"];
@@ -18,10 +19,12 @@ function generateRandomExpression(): string
     $operand2 = random_int(1, 99);
     $i = array_rand($operators);
     $expression = "$operand1 $operators[$i] $operand2";
+
     return $expression;
 }
 
-function isAnswer(string $expression): int {
+function isAnswer(string $expression): int
+{
     $expression = str_replace(' ', '', $expression);
 
     if (preg_match('/^(\d+)([+\-*])(\d+)$/', $expression, $matches)) {
@@ -32,8 +35,10 @@ function isAnswer(string $expression): int {
         switch ($operator) {
             case '+':
                 return $operand1 + $operand2;
+
             case '-':
                 return $operand1 - $operand2;
+
             case '*':
                 return $operand1 * $operand2;
         }
@@ -42,6 +47,7 @@ function isAnswer(string $expression): int {
     return 0;
 }
 
-function startGameCalc(): void {
+function startGameCalc(): void
+{
     startGame('calc');
 }

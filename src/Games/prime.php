@@ -5,11 +5,13 @@ namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\startGame;
 
-function randomNumberForPrime(): int {
+function randomNumberForPrime(): int
+{
     return random_int(1, 100);
 }
 
-function checkPrime($number): bool {
+function checkPrime($number): bool
+{
     $i = 2;
 
     while ($i < $number) {
@@ -22,6 +24,7 @@ function checkPrime($number): bool {
     return true;
 }
 
-function startGamePrime(): void {
+function startGamePrime(): void
+{
     startGame('prime');
 }
