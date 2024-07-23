@@ -27,7 +27,7 @@ function isAnswer(string $expression): int
 {
     $expression = str_replace(' ', '', $expression);
 
-    if (preg_match('/^(\d+)([+\-*])(\d+)$/', $expression, $matches)) {
+    if (preg_match('/^(\d+)([+\-*])(\d+)$/', $expression, $matches) === 1) {
         $operand1 = (int)$matches[1];
         $operator = $matches[2];
         $operand2 = (int)$matches[3];

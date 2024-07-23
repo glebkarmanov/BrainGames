@@ -10,7 +10,7 @@ function randomNumberForPrime(): int
     return random_int(1, 100);
 }
 
-function checkPrime($number): bool
+function checkPrime(int $number): bool
 {
     $i = 2;
 

@@ -9,6 +9,9 @@ function randomNext(): array
 {
     $startNext = random_int(1, 100);
     $step = random_int(2, 10);
+
+    $result = [];
+
     $result[] = $startNext;
     $i = 0;
     $countProgress = 10;

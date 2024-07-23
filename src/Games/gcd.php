@@ -13,7 +13,7 @@ function randomNumberForCommon(): string
     return $result;
 }
 
-function splitStringIntoNumbers($result): array
+function splitStringIntoNumbers(string $result): array
 {
     // Разделяем строку по пробелу на массив
     $numbers = explode(' ', $result);
@@ -25,7 +25,7 @@ function splitStringIntoNumbers($result): array
     return [$number1, $number2];
 }
 
-function answerRandomNumberForCommon($randomNumbers): int
+function answerRandomNumberForCommon(array $randomNumbers): int
 {
 
     $randomNumber1 = $randomNumbers[0];
