@@ -5,98 +5,37 @@ namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Games\Calc\generateRandomExpression;
-use function BrainGames\Games\Calc\isAnswer;
-use function BrainGames\Games\Even\generateRandomNumber;
-use function BrainGames\Games\Gcd\randomNumberForCommon;
-use function BrainGames\Games\Gcd\splitStringIntoNumbers;
-use function BrainGames\Games\Gcd\answerRandomNumberForCommon;
-use function BrainGames\Games\Prime\randomNumberForPrime;
-use function BrainGames\Games\Prime\checkPrime;
-use function BrainGames\Games\Progression\randomNext;
-
-function greetUser(string $gameType): string
-{
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    if ($gameType === 'calc') {
-        line('What is the result of the expression?');
-    } elseif ($gameType === 'even') {
-        line('Answer "yes" if the number is even, otherwise answer "no".');
-    } elseif ($gameType === 'gcd') {
-        line('Find the greatest common divisor of given numbers.');
-    } elseif ($gameType === 'progression') {
-        line('What number is missing in the progression?');
-    } elseif ($gameType === 'prime') {
-        line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    }
-    return $name;
-}
-
-function askQuestion(string $gameType)
-{
-    if ($gameType === 'calc') {
-        $randomExpression = generateRandomExpression();
-        line("Question: $randomExpression");
-        $answer = prompt('Your answer');
-        return isAnswerCorrect($answer, $randomExpression, $gameType);
-    } elseif ($gameType === 'even') {
-        $randomNumber = generateRandomNumber();
-        line("Question: $randomNumber");
-        $answer = prompt('Your answer');
-        return isAnswerCorrect($answer, $randomNumber, $gameType);
-    } elseif ($gameType === 'gcd') {
-        $randomCommon = randomNumberForCommon();
-        line("Question: $randomCommon");
-        $answer = prompt('Your answer');
-        return isAnswerCorrect($answer, $randomCommon, $gameType);
-    } elseif ($gameType === 'progression') {
-        $randomNext = randomNext();
-        $string = implode(' ', $randomNext[0]);
-        line("Question: $string");
-        $answer = prompt('Your answer');
-        return isAnswerCorrect($answer, $randomNext[1], $gameType);
-    } elseif ($gameType === 'prime') {
-        $randomNumber = randomNumberForPrime();
-        line("Question: $randomNumber");
-        $answer = prompt("Your answer");
-        return isAnswerCorrect($answer, $randomNumber, $gameType);
-    }
-}
-
-
-function isAnswerCorrect(mixed $answer, mixed $randomValue, string $gameType)
-{
-    if ($gameType === 'calc') {
-        $result = isAnswer($randomValue);
-        return $result == $answer;
-    } elseif ($gameType === 'even') {
-        return ($randomValue % 2 === 0 and $answer === "yes") ||
-            ($randomValue % 2 !== 0 and $answer === "no");
-    } elseif ($gameType === 'gcd') {
-        $array = splitStringIntoNumbers($randomValue);
-        $result = answerRandomNumberForCommon($array);
-        return $result == $answer;
-    } elseif ($gameType === 'progression') {
-        return $answer == $randomValue;
-    } elseif ($gameType === 'prime') {
-        $result = checkPrime($randomValue);
-        if (mb_strtolower($answer) === 'no' && $result == false) {
-            return true;
-        } elseif (mb_strtolower($answer) === 'yes' && $result == true) {
-            return true;
-        }
-        return false;
-    }
-}
+use function BrainGames\Games\Calc\askQuestionCalc;
+use function BrainGames\Games\Even\askQuestionEven;
+use function BrainGames\Games\Gcd\askQuestionGcd;
+use function BrainGames\Games\Prime\askQuestionPrime;
+use function BrainGames\Games\Progression\askQuestionProgression;
 
 function playGame(string $name, string $gameType): bool
 {
     $i = 0;
+
     while ($i < 3) {
-        if (askQuestion($gameType)) {
-            $i = $i + 1;
+        switch ($gameType) {
+            case 'calc':
+                $isCorrect = askQuestionCalc();
+                break;
+            case 'even':
+                $isCorrect = askQuestionEven();
+                break;
+            case 'gcd':
+                $isCorrect = askQuestionGcd();
+                break;
+            case 'progression':
+                $isCorrect = askQuestionProgression();
+                break;
+            case 'prime':
+                $isCorrect = askQuestionPrime();
+                break;
+        }
+
+        if ($isCorrect) {
+            $i++;
             line("Correct!");
         } else {
             return false;
@@ -105,6 +44,7 @@ function playGame(string $name, string $gameType): bool
     return true;
 }
 
+
 function announceResult(string $name, string $gameType): void
 {
     if (playGame($name, $gameType)) {
@@ -112,10 +52,4 @@ function announceResult(string $name, string $gameType): void
     } else {
         line("Let's try again, $name!");
     }
-}
-
-function startGame(string $gameType): void
-{
-    $name = greetUser($gameType);
-    announceResult($name, $gameType);
 }

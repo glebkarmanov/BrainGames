@@ -3,7 +3,35 @@
 
 namespace BrainGames\Games\Gcd;
 
-use function BrainGames\Engine\startGame;
+use function cli\line;
+use function cli\prompt;
+use function BrainGames\Engine\playGame;
+use function BrainGames\Engine\announceResult;
+
+function greetUser(): string
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('Find the greatest common divisor of given numbers.');
+    return $name;
+}
+
+function askQuestionGcd(): bool
+{
+    $randomCommon = randomNumberForCommon();
+    line("Question: $randomCommon");
+    $answer = prompt('Your answer');
+    return isAnswerCorrect($answer, $randomCommon);
+}
+
+function isAnswerCorrect(mixed $answer, mixed $randomValue): bool
+{
+    $array = splitStringIntoNumbers($randomValue);
+    $result = answerRandomNumberForCommon($array);
+    return $result == $answer;
+}
+
 
 function randomNumberForCommon(): string
 {
@@ -45,6 +73,12 @@ function answerRandomNumberForCommon(array $randomNumbers): int
     } else {
         return answerRandomNumberForCommon([$lowNumber, $divideNumber]);
     }
+}
+
+function startGame(string $gameType): void
+{
+    $name = greetUser();
+    announceResult($name, $gameType);
 }
 
 function startGameGcd(): void

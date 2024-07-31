@@ -5,12 +5,31 @@ namespace BrainGames\Games\Calc;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Engine\greetUser;
-use function BrainGames\Engine\askQuestion;
-use function BrainGames\Engine\isAnswerCorrect;
 use function BrainGames\Engine\playGame;
 use function BrainGames\Engine\announceResult;
-use function BrainGames\Engine\startGame;
+
+function greetUser(): string
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('What is the result of the expression?');
+    return $name;
+}
+
+function askQuestionCalc(): bool
+{
+    $randomExpression = generateRandomExpression();
+    line("Question: $randomExpression");
+    $answer = prompt('Your answer');
+    return isAnswerCorrect($answer, $randomExpression);
+}
+
+function isAnswerCorrect(mixed $answer, mixed $randomValue): bool
+{
+    $result = isAnswer($randomValue);
+    return $result == $answer;
+}
 
 function generateRandomExpression(): string
 {
@@ -34,7 +53,8 @@ function isAnswer(string $expression): int
 
         switch ($operator) {
             case '+':
-                return $operand1 + $operand2;
+                $result = $operand1 + $operand2;
+                return $result;
 
             case '-':
                 return $operand1 - $operand2;
@@ -45,6 +65,12 @@ function isAnswer(string $expression): int
     }
 
     return 0;
+}
+
+function startGame(string $gameType): void
+{
+    $name = greetUser();
+    announceResult($name, $gameType);
 }
 
 function startGameCalc(): void

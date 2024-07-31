@@ -3,7 +3,33 @@
 
 namespace BrainGames\Games\Progression;
 
-use function BrainGames\Engine\startGame;
+use function cli\line;
+use function cli\prompt;
+use function BrainGames\Engine\playGame;
+use function BrainGames\Engine\announceResult;
+
+function greetUser(): string
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('What number is missing in the progression?');
+    return $name;
+}
+
+function askQuestionProgression(): bool
+{
+    $randomNext = randomNext();
+    $string = implode(' ', $randomNext[0]);
+    line("Question: $string");
+    $answer = prompt('Your answer');
+    return isAnswerCorrect($answer, $randomNext[1]);
+}
+
+function isAnswerCorrect(mixed $answer, mixed $randomValue): bool
+{
+    return $answer == $randomValue;
+}
 
 function randomNext(): array
 {
@@ -28,6 +54,12 @@ function randomNext(): array
     $result[$silent] = '..';
 
     return [$result, $new];
+}
+
+function startGame(string $gameType): void
+{
+    $name = greetUser();
+    announceResult($name, $gameType);
 }
 
 function startGameProgression(): void
