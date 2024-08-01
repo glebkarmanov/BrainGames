@@ -32,6 +32,10 @@ function playGame(string $name, string $gameType): bool
             case 'prime':
                 $isCorrect = askQuestionPrime();
                 break;
+            default:
+                // Установим значение по умолчанию, если gameType не соответствует ни одному из известных значений
+                $isCorrect = false;
+                break;
         }
 
         if ($isCorrect) {
