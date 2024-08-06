@@ -11,33 +11,12 @@ use function BrainGames\Games\Gcd\askQuestionGcd;
 use function BrainGames\Games\Prime\askQuestionPrime;
 use function BrainGames\Games\Progression\askQuestionProgression;
 
-function playGame(string $name, string $gameType): bool
+function playGame(string $name, callable $askQuestionFunction): bool
 {
     $i = 0;
 
     while ($i < 3) {
-        switch ($gameType) {
-            case 'calc':
-                $isCorrect = askQuestionCalc();
-                break;
-            case 'even':
-                $isCorrect = askQuestionEven();
-                break;
-            case 'gcd':
-                $isCorrect = askQuestionGcd();
-                break;
-            case 'progression':
-                $isCorrect = askQuestionProgression();
-                break;
-            case 'prime':
-                $isCorrect = askQuestionPrime();
-                break;
-            default:
-                // Установим значение по умолчанию, если gameType не соответствует ни одному из известных значений
-                $isCorrect = false;
-                break;
-        }
-
+        $isCorrect = $askQuestionFunction();
         if ($isCorrect) {
             $i++;
             line("Correct!");
@@ -49,9 +28,9 @@ function playGame(string $name, string $gameType): bool
 }
 
 
-function announceResult(string $name, string $gameType): void
+function announceResult(string $name, callable $askQuestionFunction): void
 {
-    if (playGame($name, $gameType)) {
+    if (playGame($name, $askQuestionFunction)) {
         line("Congratulations, $name!");
     } else {
         line("Let's try again, $name!");

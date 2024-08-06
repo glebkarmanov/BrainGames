@@ -59,7 +59,10 @@ function randomNext(): array
 function startGame(string $gameType): void
 {
     $name = greetUser();
-    announceResult($name, $gameType);
+    $askQuestionFunction = function() {
+        return askQuestionProgression();
+    };
+    announceResult($name, $askQuestionFunction);
 }
 
 function startGameProgression(): void

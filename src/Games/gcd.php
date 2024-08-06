@@ -78,7 +78,10 @@ function answerRandomNumberForCommon(array $randomNumbers): int
 function startGame(string $gameType): void
 {
     $name = greetUser();
-    announceResult($name, $gameType);
+    $askQuestionFunction = function() {
+        return askQuestionGcd();
+    };
+    announceResult($name, $askQuestionFunction);
 }
 
 function startGameGcd(): void
