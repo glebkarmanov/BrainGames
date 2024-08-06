@@ -58,7 +58,7 @@ function checkPrime(int $number): bool
 function startGame(string $gameType): void
 {
     $name = greetUser();
-    $askQuestionFunction = function() {
+    $askQuestionFunction = function () {
         return askQuestionPrime();
     };
     announceResult($name, $askQuestionFunction);

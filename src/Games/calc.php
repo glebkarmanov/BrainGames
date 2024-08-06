@@ -70,7 +70,7 @@ function isAnswer(string $expression): int
 function startGame(string $gameType): void
 {
     $name = greetUser();
-    $askQuestionFunction = function() {
+    $askQuestionFunction = function () {
         return askQuestionCalc();
     };
     announceResult($name, $askQuestionFunction);

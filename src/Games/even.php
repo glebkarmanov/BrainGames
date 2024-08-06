@@ -38,7 +38,7 @@ function isAnswerCorrect(mixed $answer, mixed $randomValue): bool
 function startGame(string $gameType): void
 {
     $name = greetUser();
-    $askQuestionFunction = function() {
+    $askQuestionFunction = function () {
         return askQuestionEven();
     };
     announceResult($name, $askQuestionFunction);
